@@ -5,7 +5,7 @@
     </div>
 
     <button v-if="!isCreating && !isEditing" @click="showCreateForm" class="px-4 py-2 bg-green-500 text-white rounded mb-4">
-      Add New Product
+      Agregar producto
     </button>
 
     <ProductList
@@ -60,7 +60,7 @@ export default {
         this.products = response.data;
       } catch (error) {
         this.message = {
-          text: error.response?.data?.error || 'Error fetching products.',
+          text: error.response?.data?.error || 'Error actualizando lista.',
           type: 'error'
         };
       }
@@ -69,11 +69,11 @@ export default {
       try {
         await axios.delete(`http://127.0.0.1:8000/api/products/${id}`);
         this.fetchProducts();
-        this.message = { text: 'Product deleted successfully', type: 'success' };
+        this.message = { text: 'Product eliminado', type: 'success' };
         this.clearMessage();
       } catch (error) {
         this.message = {
-          text: error.response?.data?.error || 'Error deleting product.',
+          text: error.response?.data?.error || 'Error eliminando el producto.',
           type: 'error'
         };
         this.clearMessage();
@@ -92,13 +92,13 @@ export default {
     handleProductAdded() {
       this.isCreating = false;
       this.fetchProducts();
-      this.message = { text: 'Product added successfully', type: 'success' };
+      this.message = { text: 'Producto agregado', type: 'success' };
       this.clearMessage();
     },
     handleProductUpdated() {
       this.isEditing = false;
       this.fetchProducts();
-      this.message = { text: 'Product updated successfully', type: 'success' };
+      this.message = { text: 'Product acualizado', type: 'warning' };
       this.clearMessage();
     },
     cancelCreate() {

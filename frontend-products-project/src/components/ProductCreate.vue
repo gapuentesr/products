@@ -1,6 +1,6 @@
 <template>
   <div class="p-4">
-    <h2 class="text-xl font-bold mb-4">Add New Product</h2>
+    <h2 class="text-xl font-bold mb-4">Agregar producto</h2>
     <form @submit.prevent="submitForm">
       <div class="mb-4">
         <label for="code" class="block text-gray-700">Code</label>
@@ -22,8 +22,8 @@
         <label for="description" class="block text-gray-700">Description</label>
         <textarea id="description" v-model="product.description" class="mt-1 block w-full border border-gray-300 rounded-md" rows="3"></textarea>
       </div>
-      <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded">Submit</button>
-      <button @click="$emit('cancel')" type="button" class="px-4 py-2 bg-gray-500 text-white rounded ml-2">Cancel</button>
+      <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded">Guardar</button>
+      <button @click="$emit('cancel')" type="button" class="px-4 py-2 bg-gray-500 text-white rounded ml-2">Cancelar</button>
     </form>
 
     <div v-if="error" class="mt-4 text-red-500">{{ error }}</div>
